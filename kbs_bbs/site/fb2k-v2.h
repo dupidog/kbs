@@ -8,11 +8,13 @@
 #define HAVE_FRIENDS_NUM 1
 #define HAVE_REVERSE_DNS 0
 #define CHINESE_CHARACTER 1
-#define CNBBS_TOPIC  1 /* 是否在进站过程中显示 cn.bbs.* 十大热门话题 */
+#define CNBBS_TOPIC  0 /* 是否在进站过程中显示 cn.bbs.* 十大热门话题 */
 #define MAIL2BOARD  0 /* 是否允许直接 mail to any board */
 #define MAILOUT   1 /* 是否允许向站外主动发信 */
 #define MANUAL_DENY  0 /*是否允许手动解封*/
 #define BBS_SERVICE_DICT 1
+//#define COLOR_ONLINE 1
+#define OS_64BIT 1
 
 #define BUILD_PHP_EXTENSION 1   /*将php lib编成php extension */
 /*#define USE_SEM_LOCK 1*/
@@ -32,8 +34,8 @@
 
 #define IDLE_TIMEOUT    (60*20)
 
-#define BBSUID    501
-#define BBSGID    501
+#define BBSUID    1000
+#define BBSGID    1000
 
 /* for bbs2www, by flyriver, 2001.3.9 */
 #define SECNUM 13
@@ -63,6 +65,7 @@
 #define       LENGTH_ACBOARD_BUFFER   300
 #define       LENGTH_ACBOARD_LINE     300
 
+#define SAVELIVE
 #define LIFE_DAY_USER  120
 #define LIFE_DAY_YEAR          365
 #define LIFE_DAY_LONG  666
@@ -79,10 +82,10 @@
 
 #define MAIL_MAILSERVER     "127.0.0.1:25"
 
-#define BBSDOMAIN_DEFAULT "bbs.mysite.net"   /* 站点域名 */
-#define SHORTNAME_DEFAULT "KBS"              /* 站名简称 */
-#define BBSNAME_DEFAULT   "KBS 试验站"       /* 站名全称 */
-#define MAILDOMAIN_DEFAULT "mysite.net"      /* 发对外邮件的地址 */
+#define BBSDOMAIN_DEFAULT "bbs.tingtao.net"   /* 站点域名 */
+#define SHORTNAME_DEFAULT "tingtao"              /* 站名简称 */
+#define BBSNAME_DEFAULT   "BBS听涛站"       /* 站名全称 */
+#define MAILDOMAIN_DEFAULT "tingtao.net"      /* 发对外邮件的地址 */
 
 #ifdef ENABLE_CUSTOMIZING
 #define NAME_BBS_ENGLISH sysconf_str_default("BBSDOMAIN", BBSDOMAIN_DEFAULT)
@@ -98,16 +101,16 @@
 
 #define FOOTER_MOVIE  "欢  迎  投  稿"
 /*#define ISSUE_LOGIN  "本站使用曙光公司曙光天演服务器"*/
-#define ISSUE_LOGIN  "kbsbbs 系统试验站"
+#define ISSUE_LOGIN  "BBS听涛站"
 #define ISSUE_LOGOUT  "还是走了罗"
 
 #define NAME_USER_SHORT  "用户"
-#define NAME_USER_LONG  "水木用户"
+#define NAME_USER_LONG  "听涛用户"
 #define NAME_SYSOP  "System Operator"
 #define NAME_BM   "版主"
 #define NAME_POLICE  "警察"
 #define NAME_SYSOP_GROUP "站务组"
-#define NAME_ANONYMOUS  "我爱水木!"
+#define NAME_ANONYMOUS  "我爱听涛!"
 #define NAME_ANONYMOUS_FROM "匿名天使的家"
 #define ANONYMOUS_DEFAULT 0
 

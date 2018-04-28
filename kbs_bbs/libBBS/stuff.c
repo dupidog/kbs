@@ -1492,7 +1492,7 @@ void set_proc_title(char *argv0, char *title)
 #ifdef FREEBSD
     setproctitle("-%s", title);
 #else
-    strcpy(argv0, title);
+    strncpy(argv0, title, 20);
 #endif
 }
 

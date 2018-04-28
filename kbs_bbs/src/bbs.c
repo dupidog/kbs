@@ -1323,7 +1323,7 @@ static void  board_attach_link(char* buf,int buf_len,char *ext,int len,long atta
             memcpy(ptr, md5ret, 4);
             memcpy(base64_info, info, 9);
             to64frombits((unsigned char*)base64_info+9, (unsigned char*)info+9, 24);
-            snprintf(buf,buf_len,"http://%s/att.php?%s%s",
+            snprintf(buf,buf_len,"https://%s/att.php?%s%s",
                      get_my_webdomain(1),base64_info,ext);
             return;
 #else
@@ -1335,12 +1335,12 @@ static void  board_attach_link(char* buf,int buf_len,char *ext,int len,long atta
 
         if (zd) sprintf(ftype, ".%d.0", DIR_MODE_ZHIDING);
 
-        snprintf(buf,buf_len,"http://%s/att.php?%c.%d.%d%s.%ld%s",
+        snprintf(buf,buf_len,"https://%s/att.php?%c.%d.%d%s.%ld%s",
                  get_my_webdomain(1),ktype,currboardent,fh->id,ftype,attachpos,ext);
     } else {
         if (zd) sprintf(ftype, "&ftype=%d", DIR_MODE_ZHIDING);
 
-        snprintf(buf,buf_len,"http://%s/bbscon.php?bid=%d&id=%d%s",
+        snprintf(buf,buf_len,"https://%s/bbscon.php?bid=%d&id=%d%s",
                  get_my_webdomain(0),currboardent,fh->id, ftype);
     }
 }
@@ -1406,7 +1406,7 @@ int showinfo(struct _select_def* conf,struct fileheader *fileinfo,void* extraarg
         char ses[20];
         move(0,0);
         get_telnet_sessionid(ses, getSession()->utmpent);
-        snprintf(slink, sizeof(slink), "附件编辑地址: (请勿将此链接发送给别人)\n\033[4mhttp://%s/bbseditatt.php?bid=%d&id=%d&sid=%s\033[m\n",
+        snprintf(slink, sizeof(slink), "附件编辑地址: (请勿将此链接发送给别人)\n\033[4mhttps://%s/bbseditatt.php?bid=%d&id=%d&sid=%s\033[m\n",
                  get_my_webdomain(0), currboardent, fileinfo->id, ses);
         prints("%s", slink);
     }
@@ -3016,7 +3016,7 @@ int process_upload(int nUpload, int maxShow, char *ans, struct ea_attach_info* a
     }
 
     get_telnet_sessionid(ses, getSession()->utmpent);
-    snprintf(buf, sizeof(buf), "附件上传地址: (请勿将此链接发送给别人)\n\033[4mhttp://%s/bbsupload.php?sid=%s\033[m\n", get_my_webdomain(0), ses);
+    snprintf(buf, sizeof(buf), "附件上传地址: (请勿将此链接发送给别人)\n\033[4mhttps://%s/bbsupload.php?sid=%s\033[m\n", get_my_webdomain(0), ses);
     clear();
     prints(buf);
     nUpload = upload_read_fileinfo(ai, getSession());
